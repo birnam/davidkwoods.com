@@ -1,7 +1,22 @@
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
+$backgroundColor: #bada55;
+
 @import "bootstrap-sass/lib/bootstrap";
+
+@mixin Josefin {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+}
+@mixin Raleway {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}
+@mixin icofont {
+    font-family: 'icomoon', sans-serif;
+    font-weight: 400;
+}
 
 /* Put your CSS here */
 html, body {
@@ -9,9 +24,14 @@ html, body {
 }
 
 body {
-    background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: $backgroundColor;
+    //font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    @include Raleway();
     color: #333;
+}
+
+h1 {
+    @include Josefin();
 }
 
 .hero-unit {
@@ -29,4 +49,8 @@ body {
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
+}
+
+.icon {
+    @include icofont();
 }

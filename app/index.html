@@ -9,7 +9,11 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="apple-touch-icon" href="icon.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="icon_72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="icon_114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="icon_144.png" />
+        <link rel="apple-touch-icon" sizes="256x256" href="icon.png" />
 
         <!-- build:css({.tmp,app}) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
@@ -34,6 +38,16 @@
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
       g.src='//www.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {
+          families: ['Josefin+Sans:700:latin', 'Raleway::latin'],
+          urls: ['/styles/fonts/icomoon67876/style.css']
+        }
+      });
     </script>
 
     <script src="bower_components/jquery/jquery.js"></script>
