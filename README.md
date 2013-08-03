@@ -14,9 +14,9 @@ In order to build this site locally, you need a few things:
 
 Once you have cloned the repository on your local machine, and you have these installed, it's easy to run!
 
-> npm install
-> bower install
-> grunt build
-> grunt server
+    > npm install
+    > bower install
+    > grunt build
+    > grunt server
 
 The last command will open up your browser with the site in it. Fun!
