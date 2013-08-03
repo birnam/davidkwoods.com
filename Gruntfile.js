@@ -282,6 +282,35 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    rsync: {
+        options: {
+            args: ["--verbose"],
+            exclude: [".git*","*.scss","node_modules"],
+            recursive: true
+        },
+        dist: {
+            options: {
+                src: "./",
+                dest: "../dist"
+            }
+        },
+        stage: {
+            options: {
+                src: "../dist/",
+                dest: "/media/Messier/davidkwoods.com/site",
+                host: "david@home",
+                syncDestIgnoreExcl: true
+            }
+        }/*,
+        prod: {
+            options: {
+                src: "../dist/",
+                dest: "/var/www/site",
+                host: "user@live-host",
+                syncDestIgnoreExcl: true
+            }
+        }*/
     }
   });
 
@@ -325,4 +354,6 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks("grunt-rsync");
 };
