@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('davidkwoodsApp', [])
+angular.module('davidkwoodsApp', [ 'davidkwoodsApp.main' ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
@@ -11,4 +11,6 @@ angular.module('davidkwoodsApp', [])
         redirectTo: '/'
       });
     $locationProvider.html5Mode(true);
+
+//    $log.info("in app");
   });

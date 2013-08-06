@@ -5,9 +5,20 @@ basePath = '';
 
 // list of files / patterns to load in the browser
 files = [
-  ANGULAR_SCENARIO,
-  ANGULAR_SCENARIO_ADAPTER,
-  'test/e2e/**/*.js'
+    ANGULAR_SCENARIO,
+    ANGULAR_SCENARIO_ADAPTER,
+//    JASMINE,
+//    JASMINE_ADAPTER,
+
+//    'app/bower_components/angular/angular.js',
+    'app/bower_components/angular-mocks/angular-mocks.js',
+
+    'app/bower_components/angular-resource/angular-resource.js',
+    'app/bower_components/angular-cookies/angular-cookies.js',
+    'app/bower_components/angular-sanitize/angular-sanitize.js',
+    'app/scripts/*.js',
+    'app/scripts/**/*.js',
+    'test/e2e/**/*.js'
 ];
 
 // list of files to exclude
@@ -31,7 +42,7 @@ colors = true;
 logLevel = LOG_INFO;
 
 // enable / disable watching file and executing tests whenever any file changes
-autoWatch = false;
+autoWatch = true;
 
 // Start these browsers, currently available:
 // - Chrome
@@ -42,6 +53,7 @@ autoWatch = false;
 // - PhantomJS
 // - IE (only Windows)
 browsers = ['Chrome'];
+//browsers = ['PhantomJS'];
 
 // If browser does not capture in given timeout [ms], kill it
 captureTimeout = 5000;
@@ -51,8 +63,8 @@ captureTimeout = 5000;
 singleRun = false;
 
 // Uncomment the following lines if you are using grunt's server to run the tests
-// proxies = {
-//   '/': 'http://localhost:9000/'
-// };
+proxies = {
+    '/': 'http://localhost:9000/'
+};
 // URL root prevent conflicts with the site root
-// urlRoot = '_karma_';
+urlRoot = '/__e2e/';
