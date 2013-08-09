@@ -64,15 +64,9 @@ describe('DB Tests', function () {
             expect(element('#fetchbtn').text()).toBe("Fetch!");
         });
 
-//        it('should trigger "fetch" when the button is clicked', function() {
-//            var clickit = element('#fetchbtn').click();
-//            clickit.execute(function() {});
-//        });
-
         it('should populate the lists after "fetch"', function() {
             var clickit = element('#fetchbtn').click();
             clickit.execute(function() {});
-
 
             var getCount = repeater('ul#listOnes li').count();
             getCount.execute(function(value) {
