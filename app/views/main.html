@@ -1,10 +1,14 @@
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <h1>Alonzy!</h1>
-  <p>You now have <span class="icon">A</span></p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed. WOot Woot!</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+<div class="hero-unit" id="heroUnit" ng-style="bgProp()">
+    <h1>'Allo, 'Allo!</h1>
+
+    <h1>Alonzy!</h1>
+
+    <p>You now have <span class="icon">A</span></p>
+    <ul>
+        <li ng-repeat="thing in awesomeThings">{{thing}}</li>
+    </ul>
+    <p>installed. WOot Woot!</p>
+
+    <h3>Enjoy coding! - Yeoman</h3>
+    <button id="trybtn" ng-click="onClick()">hi</button>
 </div>

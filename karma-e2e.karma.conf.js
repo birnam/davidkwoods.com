@@ -8,8 +8,12 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         , files: [
-            'app/bower_components/angular-mocks/angular-mocks.js',
             'app/bower_components/jquery/jquery.js',
+
+                ANGULAR_SCENARIO,
+                ANGULAR_SCENARIO_ADAPTER,
+
+            'app/bower_components/angular-mocks/angular-mocks.js',
 
             'app/bower_components/angular-resource/angular-resource.js',
             'app/bower_components/angular-cookies/angular-cookies.js',
@@ -19,7 +23,8 @@ module.exports = function (config) {
             'test/e2e/**/*.js'
         ]
 
-        , frameworks: [ 'ng-scenario' ]
+        // bug, doesn't load jQuery first, must still use ANGULAR_SCENARIO syntax
+//        , frameworks: [ 'ng-scenario' ]
 
         // list of files to exclude
         , exclude: []
@@ -39,7 +44,7 @@ module.exports = function (config) {
 
         // level of logging
         // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-        , logLevel: config.LOG_DEBUG
+        , logLevel: config.LOG_INFO
 
         // enable / disable watching file and executing tests whenever any file changes
         , autoWatch: true
@@ -52,7 +57,7 @@ module.exports = function (config) {
         // - Safari (only Mac)
         // - PhantomJS
         // - IE (only Windows)
-        , browsers: ['Chrome']
+        , browsers: ['ChromeCanary']
 //        , browsers: ['PhantomJS']
 
         // If browser does not capture in given timeout [ms], kill it
