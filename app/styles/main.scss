@@ -2,6 +2,8 @@ $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 $backgroundColor: #bada55;
+$backgroundImage: url('../images/bg.jpg');
+$menuBackgroundImage: url('../images/bg_menu.jpg');
 
 @import "bootstrap-sass/lib/bootstrap";
 
@@ -20,15 +22,54 @@ $backgroundColor: #bada55;
 
 /* Put your CSS here */
 html, body {
-  margin: 20px;
+  margin: 0px;
 }
 
 body {
-    background: $backgroundColor;
+    background: $backgroundImage 0 0 repeat;
     //font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     @include Raleway();
     color: #333;
 }
+
+#logo {
+    position: absolute;
+    background: url('../images/logo.jpg') 0 0 no-repeat;
+    z-index: 1;
+
+    text-indent: -5000px;
+    width: 836px;
+    height: 296px;
+    top: 0;
+    left: 0;
+}
+
+#nav_main {
+    background: $menuBackgroundImage 0 0 repeat;
+    border-radius: 4px;
+}
+
+section.page {
+    margin: 174px 200px 30px;
+    background: #f00;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 h1 {
     @include Josefin();

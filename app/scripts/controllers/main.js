@@ -9,6 +9,9 @@ angular.module('davidkwoodsApp.main', [
                 'AngularJS',
                 'Karma'
             ];
+            $scope.navMain = [
+                { title: "One", url: "/1" }
+            ];
 
             $scope.onClick = function() {
                 $scope.bgColor.color = $scope.getRandomColor();

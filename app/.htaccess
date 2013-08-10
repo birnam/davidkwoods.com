@@ -216,6 +216,13 @@ AddDefaultCharset utf-8
   # RewriteBase /
 </IfModule>
 
+# send all unknown traffic to /
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^.*$ index.html [QSA,L]
+</IfModule>
+
 # ------------------------------------------------------------------------------
 # | Suppressing / Forcing the "www." at the beginning of URLs                  |
 # ------------------------------------------------------------------------------

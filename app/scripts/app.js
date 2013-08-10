@@ -14,6 +14,10 @@ angular.module('davidkwoodsApp', [
                         templateUrl: 'views/dbtests.html',
                         controller: 'DBTests'
                     })
+                    .when('/testtt', {
+                        templateUrl: 'views/dbtests.html',
+                        controller: 'DBTests'
+                    })
                     .otherwise({
                         redirectTo: '/'
                     });
