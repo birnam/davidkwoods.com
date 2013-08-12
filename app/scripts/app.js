@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('davidkwoodsApp', [
-            'davidkwoodsApp.main'
-            , 'davidkwoodsApp.services'
+            'ngResource'
+            ,'davidkwoodsApp.services'
         ])
         .config(function ($routeProvider, $locationProvider) {
             $routeProvider

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('davidkwoodsApp.main', [])
+angular.module('davidkwoodsApp')
         .controller('DBTests', function ($scope, Couch) {
 
             $scope.Ones = [  ];

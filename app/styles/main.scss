@@ -2,10 +2,17 @@ $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 $backgroundColor: #bada55;
+$highlightColor: #f8d107;
 $backgroundImage: url('../images/bg.jpg');
+$backgroundOverImage: url('../images/bg_over.png');
 $menuBackgroundImage: url('../images/bg_menu.jpg');
 
-@import "bootstrap-sass/lib/bootstrap";
+$minMargin: 200px;
+$menuWidth: 225px;
+
+@import "_reset";
+@import "bootstrap-sass/lib/_mixins";
+@import "bootstrap-sass/lib/_reset";
 
 @mixin Josefin {
     font-family: 'Josefin Sans', sans-serif;
@@ -30,6 +37,24 @@ body {
     //font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     @include Raleway();
     color: #333;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $highlightColor;
+    @include Raleway();
+}
+
+h1 { font-size: 22px; }
+h2 { font-size: 18px; }
+h3 { font-size: 16px; }
+h4 { font-size: 14px; }
+h5 { font-size: 13px; }
+h6 { font-size: 12px; }
+
+.container {
+    position: relative;
+    padding-top: 174px;
 }
 
 #logo {
@@ -42,22 +67,97 @@ body {
     height: 296px;
     top: 0;
     left: 0;
+    margin: 0;
 }
 
-#nav_main {
-    background: $menuBackgroundImage 0 0 repeat;
-    border-radius: 4px;
+.bg_over {
+    background: $backgroundOverImage 0 0 no-repeat;
+    width: 107px;
+    height: 99px;
+    position: absolute;
+    top: 123px;
+    left: 735px;
+    z-index: 4;
 }
 
 section.page {
-    margin: 174px 200px 30px;
-    background: #f00;
+    position: relative;
+    z-index: 2;
+    margin: 0px ($minMargin + 10px) 0px $minMargin;
+    min-height: 100px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
 }
 
+#nav_main {
+    float: left;
+    z-index: 3;
+    width: 225px;
+    background: $menuBackgroundImage 0 0 repeat;
+    border-radius: 4px;
+    @include Josefin();
+    font-size: 22px;
 
+    a {
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        margin: 16px 0 16px 20px;
 
+        &:first-child {
+            margin-top: 20px;
+        }
 
+        &:last-child {
+            margin-bottom: 16px;
+        }
 
+        &.home {
+            @include icofont();
+            line-height: 1.5em;
+        }
+    }
+}
+
+nav.nav_contact {
+    position: absolute;
+    top: 20px;
+    right: $minMargin;
+    z-index: 2;
+
+    a {
+        color: white;
+        text-decoration: none;
+        @include icofont();
+        @include opacity(40);
+        @include transition(opacity 0.3s ease);
+        font-size: 22px;
+        margin-left: 8px;
+
+        &:hover {
+            @include opacity(100);
+        }
+    }
+}
+
+.contentArea {
+    margin-left: 40px;
+    padding: 40px;
+    padding-left: $menuWidth;
+}
+
+#footer {
+    margin: 0 $minMargin 0;
+    text-align: center;
+    padding: 18px 0;
+    font-size: 12px;
+
+    a {
+        display: inline-block;
+        color: #999;
+        text-decoration: none;
+    }
+}
 
 
 

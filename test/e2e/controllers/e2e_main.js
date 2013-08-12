@@ -6,12 +6,12 @@ describe('Homepage', function () {
         browser().navigateTo('/');
     });
 
-    it('should be at the homepage', function() {
-        expect(browser().window().path()).toBe('/');
-        expect(browser().location().url()).toBe('/');
-    });
-
     describe('Interface', function() {
+
+        it('should be at the homepage', function() {
+            expect(browser().window().path()).toBe('/');
+            expect(browser().location().url()).toBe('/');
+        });
 
         it('should have a button', function() {
             expect(element('#trybtn').count()).toEqual(1);

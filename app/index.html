@@ -30,7 +30,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div data-main-page></div>
+    <div data-footer></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -77,8 +78,29 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/clients.js"></script>
+        <script src="scripts/controllers/contact.js"></script>
+        <script src="scripts/controllers/contactNav.js"></script>
+        <script src="scripts/controllers/contentArea.js"></script>
         <script src="scripts/controllers/dbtests.js"></script>
+        <script src="scripts/controllers/footer.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/nav.js"></script>
+        <script src="scripts/controllers/portfolio.js"></script>
+        <script src="scripts/controllers/skills.js"></script>
+
+        <script src="scripts/directives/aboutPage.js"></script>
+        <script src="scripts/directives/clientsPage.js"></script>
+        <script src="scripts/directives/contactNav.js"></script>
+        <script src="scripts/directives/contactPage.js"></script>
+        <script src="scripts/directives/contentArea.js"></script>
+        <script src="scripts/directives/footer.js"></script>
+        <script src="scripts/directives/mainNav.js"></script>
+        <script src="scripts/directives/mainPage.js"></script>
+        <script src="scripts/directives/portfolioPage.js"></script>
+        <script src="scripts/directives/skillsPage.js"></script>
 
         <script src="scripts/services/couch.js"></script>
 

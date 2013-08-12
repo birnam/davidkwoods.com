@@ -1,24 +1,15 @@
-<h1 id="logo">David K Woods</h1>
+<div class="container">
+    <h1 id="logo">David K Woods</h1>
 
-<section class="page">
+    <div data-nav-contact></div>
 
-    <nav id="nav_main">
-        <a ng-repeat="page in mainNav" href="{{ page.url }}">{{ page.link }}</a>
-    </nav>
+    <section class="page">
 
-</section>
+        <div data-nav-main></div>
 
-<div class="hero-unit" id="heroUnit" ng-style="bgProp()">
-    <h1>'Allo, 'Allo!</h1>
+        <div data-content-area></div>
 
-    <h1>Alonzy!</h1>
+    </section>
 
-    <p>You now have <span class="icon">A</span></p>
-    <ul>
-        <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-    </ul>
-    <p>installed. WOot Woot!</p>
-
-    <h3>Enjoy coding! - Yeoman</h3>
-    <button id="trybtn" ng-click="onClick()">hi</button>
+    <div class="bg_over"></div>
 </div>

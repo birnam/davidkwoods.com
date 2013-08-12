@@ -1,8 +1,6 @@
 'use strict';
 
-angular.module('davidkwoodsApp.main', [
-            'ngResource'
-        ])
+angular.module('davidkwoodsApp')
         .controller('MainCtrl', function ($scope, $resource, $log, ColoredBackgroundModel) {
             $scope.awesomeThings = [
                 'HTML5 Boilerplate',

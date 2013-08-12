@@ -58,7 +58,7 @@ module.exports = function (grunt) {
                     middleware: function (connect) {
                         return [
                             modRewrite([
-                              '!\\.html|\\images|\\.js|\\.css|\\.png|\\.jpg|\\.woff|\\.ttf|\\.svg /index.html [L]'
+                              '!\\.html|\\images|\\.js|\\.css|\\.png|\\.jpg|\\.woff|\\.ttf|\\.svg|\\.eot|\\.svg|\\.txt|\\.doc|\\.docx|\\.pdf /index.html [L]'
                             ]),
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
@@ -360,8 +360,8 @@ module.exports = function (grunt) {
     grunt.registerTask('test:e2e', [
         'clean:server',
         'concurrent:test',
-        'connect:test',
-//        'karma:e2e'
+        'connect:test'
+//        ,'karma:e2e'
     ]);
 
     grunt.registerTask('build', [
