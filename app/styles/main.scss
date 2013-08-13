@@ -117,7 +117,18 @@ section.page {
             line-height: 1.5em;
         }
     }
+
+    #nav_main_select {
+        border: dashed 1px #999;
+        background: rgba(255, 255, 255, 0.37);
+        height: 37px - 2px;
+        width: $menuWidth - 2px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }
+
 
 nav.nav_contact {
     position: absolute;
