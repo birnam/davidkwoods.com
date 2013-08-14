@@ -3,6 +3,8 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 $backgroundColor: #bada55;
 $highlightColor: #f8d107;
+$selectBorderColor: #5E5E5E;
+$selectBackgroundColor: rgba(255,255,255,0.08);
 $backgroundImage: url('../images/bg.jpg');
 $backgroundOverImage: url('../images/bg_over.png');
 $menuBackgroundImage: url('../images/bg_menu.jpg');
@@ -119,13 +121,36 @@ section.page {
     }
 
     #nav_main_select {
-        border: dashed 1px #999;
-        background: rgba(255, 255, 255, 0.37);
+        border: dashed 1px $selectBorderColor;
+        border-right: none;
+        background: $selectBackgroundColor;
         height: 37px - 2px;
-        width: $menuWidth - 2px;
+        width: $menuWidth - 1px;
         position: absolute;
         top: 0;
         left: 0;
+
+        &:before {
+            position: absolute;
+            right: -5px;
+            top: -1px;
+            height: 37px;
+            width: 110px;
+            border-right: solid 18px $selectBorderColor;
+            content: '';
+            @include gradient-horizontal(rgba(0, 0, 0, 0), $selectBorderColor);
+        }
+
+        &:after {
+            position: absolute;
+            right: -18px;
+            top: 5px;
+            height: 26px;
+            width: 26px;
+            background: $selectBorderColor;
+            content: '';
+            @include rotate(45deg);
+        }
     }
 }
 
