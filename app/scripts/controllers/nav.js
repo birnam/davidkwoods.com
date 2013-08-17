@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('davidkwoodsApp')
-        .controller('MainNavCtrl', function ($scope, $rootScope, $location) {
+        .controller('MainNavCtrl', function ($scope, $rootScope, $location, $route) {
+            $scope.selectRoute = "";
+
             $scope.mainNav = [
                 { title: "a", url: "/", class: "home" }
                 ,{ title: "Who am I?", url: "/about" }
@@ -12,11 +14,24 @@ angular.module('davidkwoodsApp')
             ];
 
             $rootScope.$on('$locationChangeSuccess', function(event, newloc, oldloc) {
-                console.log("LOC CHANGE", arguments);
+                switch($location.path()) {
+                    case "/about":
+                    case "/skills":
+                    case "/clients":
+                    case "/portfolio":
+                    case "/contact":
+                        $scope.selectRoute = "select_" + $location.path().replace("/", "");
+                        break;
+                    default:
+                        $scope.selectRoute = "select_home";
+                }
+                if (!$scope.$$phase) {
+                    $scope.$apply();
+                }
             });
 
             $scope.nav = function(url) {
-                console.log("new url", url);
+//                console.log("new url", url);
                 $location.path(url);
                 $scope.$apply();
             }

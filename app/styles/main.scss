@@ -99,7 +99,6 @@ section.page {
     border-radius: 4px;
     @include Josefin();
     font-size: 22px;
-    padding: 10px 0;
 
     a {
         cursor: pointer;
@@ -108,6 +107,7 @@ section.page {
         display: block;
         margin: 16px 8px 16px 20px;
         border-bottom: solid 1px rgba(246, 207, 5, 0.0);
+        z-index: 5;
 
         @include transition(padding 0.2s ease);
 
@@ -121,7 +121,10 @@ section.page {
 
         &.home {
             @include icofont();
+            @include transition(height 0.15s ease, opacity 0.15s);
             line-height: 1.5em;
+            overflow: hidden;
+            height: 34px;
         }
 
         &:hover {
@@ -133,7 +136,7 @@ section.page {
 
     #nav_main_select {
         @include opacity(100);
-        @include transition(opacity 0.3s ease, top 0.3s ease);
+        @include transition(opacity 0.2s ease, top 0.15s ease);
         border: dashed 1px $selectBorderColor;
         border-right: none;
         background: $selectBackgroundColor;
@@ -142,6 +145,7 @@ section.page {
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 3;
 
         &:before {
             position: absolute;
@@ -166,12 +170,19 @@ section.page {
         }
     }
 
-    &.select_home #nav_main_select { @include opacity(0); }
     &.select_about #nav_main_select { top: 58px; }
     &.select_skills #nav_main_select { top: 96px; }
-    &.select_client #nav_main_select { top: 135px; }
+    &.select_clients #nav_main_select { top: 135px; }
     &.select_portfolio #nav_main_select { top: 172px; }
     &.select_contact #nav_main_select { top: 211px; }
+
+    &.select_home {
+        a.home {
+            height: 0;
+            @include opacity(0);
+        }
+        #nav_main_select { @include opacity(0); }
+    }
 }
 
 
