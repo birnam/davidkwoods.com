@@ -1,13 +1,8 @@
-<div class="contentArea">
-    <h1>Content Area</h1>
-
-    <div data-about-page></div>
-    <div data-skills-page></div>
-    <div data-clients-page></div>
-    <div data-portfolio-page></div>
-    <div data-contact-page></div>
-
-    <p><a href="#" ng-click="go('/test.html')">test</a></p>
-    <p><a href="#" ng-click="go('/asdf')">asdf</a></p>
-    <p><a href="#" ng-click="go('/fdsa')">fdsa</a></p>
+<div class="contentArea" ng-switch="pageRoute">
+    <div ng-switch-when="/"><div data-home-page></div></div>
+    <div ng-switch-when="/about"><div data-about-page></div></div>
+    <div ng-switch-when="/skills"><div data-skills-page></div></div>
+    <div ng-switch-when="/clients"><div data-clients-page></div></div>
+    <div ng-switch-when="/portfolio"><div data-portfolio-page></div></div>
+    <div ng-switch-when="/contact"><div data-contact-page></div></div>
 </div>

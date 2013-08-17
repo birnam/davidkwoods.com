@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('davidkwoodsApp')
-        .controller('MainNavCtrl', function ($scope, $rootScope, $location, $route) {
+        .controller('MainNavCtrl', function ($scope, $rootScope, $location) {
             $scope.selectRoute = "";
 
             $scope.mainNav = [
