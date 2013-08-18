@@ -14,6 +14,7 @@ describe('Controller: MainCtrl', function () {
             , onesMock_Key2
             , couch
             , util
+            , contentArea
             ;
     // Initialize the controller and a mock scope
     beforeEach(inject(function ($controller, $rootScope, $location, $httpBackend, $resource, OnesMock, OnesMock_Key2, Couch, Util) {
@@ -26,6 +27,9 @@ describe('Controller: MainCtrl', function () {
         couch = Couch;
         util = Util;
         MainCtrl = $controller('MainCtrl', {
+            $scope: scope
+        });
+        contentArea = $controller('ContentAreaCtrl', {
             $scope: scope
         });
     }));
@@ -72,6 +76,16 @@ describe('Controller: MainCtrl', function () {
         httpBackend.flush();
     });
 
+    it('should be able to "go" to another page', function() {
+        scope.go("/about");
+        expect(location.url()).toBe('/about');
+        expect(location.url()).not.toBe('/');
+
+        scope.go("/");
+        expect(location.url()).toBe('/');
+        expect(location.url()).not.toBe('/about');
+    });
+
     xit('should know the url for sample data', function () {
         httpBackend.when('GET', 'http://localhost/testing/_design/numbering/_view/ones').respond(onesMock);
 
@@ -88,5 +102,14 @@ describe('Controller: MainCtrl', function () {
 
 //        expect(MainCtrl.testDB()).toBe(true);
         httpBackend.flush();
+    });
+
+    describe("Util", function() {
+        it("should convert a string to sentence case", function() {
+            var orig = "this is a test";
+            var expected = "This is a test";
+            var converted = util.sentenceCase(orig);
+            expect(converted).toBe(expected);
+        });
     });
 });
