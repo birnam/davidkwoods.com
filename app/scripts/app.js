@@ -44,3 +44,5 @@ angular.module('davidkwoodsApp', [
             $locationProvider.html5Mode(true);
 
         });
+
+angular.module('davidkwoodsApp.services', [ 'ng' ]);

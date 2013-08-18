@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('davidkwoodsApp.services', [ 'ng' ])
-    .factory("Couch", function(/*$resource*/$http) {
+angular.module('davidkwoodsApp.services')
+    .factory("Couch", function($http) {
             function CouchFactory(URL, Params) {
                 var url = URL;
                 var totalRows = 0;

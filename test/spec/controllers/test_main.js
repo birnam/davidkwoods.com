@@ -13,9 +13,10 @@ describe('Controller: MainCtrl', function () {
             , onesMock
             , onesMock_Key2
             , couch
+            , util
             ;
     // Initialize the controller and a mock scope
-    beforeEach(inject(function ($controller, $rootScope, $location, $httpBackend, $resource, OnesMock, OnesMock_Key2, Couch) {
+    beforeEach(inject(function ($controller, $rootScope, $location, $httpBackend, $resource, OnesMock, OnesMock_Key2, Couch, Util) {
         scope = $rootScope.$new();
         location = $location;
         httpBackend = $httpBackend;
@@ -23,6 +24,7 @@ describe('Controller: MainCtrl', function () {
         onesMock = OnesMock;
         onesMock_Key2 = OnesMock_Key2;
         couch = Couch;
+        util = Util;
         MainCtrl = $controller('MainCtrl', {
             $scope: scope
         });
@@ -33,7 +35,7 @@ describe('Controller: MainCtrl', function () {
         httpBackend.verifyNoOutstandingRequest();
     });
 
-    it('should attach a list of awesomeThings to the scope', function () {
+    xit('should attach a list of awesomeThings to the scope', function () {
         expect(scope.awesomeThings.length).toBe(3);
     });
 
@@ -43,7 +45,7 @@ describe('Controller: MainCtrl', function () {
         expect(location.url()).not.toBe('');
     });
 
-    it('should be able to generate a random color', function() {
+    xit('should be able to generate a random color', function() {
         expect(scope.getRandomColor().length).toBe(7);
     });
 

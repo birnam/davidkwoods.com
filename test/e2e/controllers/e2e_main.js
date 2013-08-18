@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Homepage', function () {
+xdescribe('Homepage', function () {
 
     beforeEach(function() {
         browser().navigateTo('/');
@@ -78,4 +78,123 @@ describe('DB Tests', function () {
             });
         });
     });
+});
+
+
+describe('Navigation', function () {
+
+    describe('Home', function() {
+        beforeEach(function() {
+            browser().navigateTo('/');
+        });
+
+        it('should be at "/"', function() {
+            expect(browser().window().path()).toBe('/');
+        });
+
+        it('should show home title', function() {
+            expect(element('title').text()).toContain("Home");
+        });
+
+        it('should show home content', function() {
+            expect(element('.contentArea h1:first').count()).toEqual(1);
+            expect(element('.contentArea h1:first').text()).toContain("Home");
+        });
+    });
+
+    describe('About', function() {
+        beforeEach(function() {
+            browser().navigateTo('/about');
+        });
+
+        it('should be at "/about"', function() {
+            expect(browser().window().path()).toBe('/about');
+        });
+
+        it('should show about title', function() {
+            expect(element('title').text()).toContain("About");
+        });
+
+        it('should show about content', function() {
+            expect(element('.contentArea h1:first').count()).toEqual(1);
+            expect(element('.contentArea h1:first').text()).toContain("About");
+        });
+    });
+
+    describe('Skills', function() {
+        beforeEach(function() {
+            browser().navigateTo('/skills');
+        });
+
+        it('should be at "/skills"', function() {
+            expect(browser().window().path()).toBe('/skills');
+        });
+
+        it('should show skills title', function() {
+            expect(element('title').text()).toContain("Skills");
+        });
+
+        it('should show skills content', function() {
+            expect(element('.contentArea h1:first').count()).toEqual(1);
+            expect(element('.contentArea h1:first').text()).toContain("Skills");
+        });
+    });
+
+    describe('Clients', function() {
+        beforeEach(function() {
+            browser().navigateTo('/clients');
+        });
+
+        it('should be at "/clients"', function() {
+            expect(browser().window().path()).toBe('/clients');
+        });
+
+        it('should show clients title', function() {
+            expect(element('title').text()).toContain("Clients");
+        });
+
+        it('should show clients content', function() {
+            expect(element('.contentArea h1:first').count()).toEqual(1);
+            expect(element('.contentArea h1:first').text()).toContain("Clients");
+        });
+    });
+
+    describe('Portfolio', function() {
+        beforeEach(function() {
+            browser().navigateTo('/portfolio');
+        });
+
+        it('should be at "/portfolio"', function() {
+            expect(browser().window().path()).toBe('/portfolio');
+        });
+
+        it('should show portfolio title', function() {
+            expect(element('title').text()).toContain("Portfolio");
+        });
+
+        it('should show portfolio content', function() {
+            expect(element('.contentArea h1:first').count()).toEqual(1);
+            expect(element('.contentArea h1:first').text()).toContain("Portfolio");
+        });
+    });
+
+    describe('Contact', function() {
+        beforeEach(function() {
+            browser().navigateTo('/contact');
+        });
+
+        it('should be at "/contact"', function() {
+            expect(browser().window().path()).toBe('/contact');
+        });
+
+        it('should show contact title', function() {
+            expect(element('title').text()).toContain("Contact");
+        });
+
+        it('should show contact content', function() {
+            expect(element('.contentArea h1:first').count()).toEqual(1);
+            expect(element('.contentArea h1:first').text()).toContain("Contact");
+        });
+    });
+
 });
