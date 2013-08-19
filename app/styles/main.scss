@@ -179,6 +179,7 @@ section.page {
     &.select_experience #nav_main_select { top: 135px; }
     &.select_portfolio #nav_main_select { top: 173px; }
     &.select_contact #nav_main_select { top: 213px; }
+    &.select_error #nav_main_select { display: none; }
 
     &.select_home {
         a.home {

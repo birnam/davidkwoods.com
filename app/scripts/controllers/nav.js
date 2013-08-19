@@ -23,8 +23,12 @@ angular.module('davidkwoodsApp')
                     case "contact":
                         $scope.selectRoute = "select_" + $routeParams.id.toLowerCase();
                         break;
-                    default:
+                    case "":
                         $scope.selectRoute = "select_home";
+                        break;
+                    default:
+                        $scope.selectRoute = "select_error";
+                        break;
                 }
                 if (!$scope.$$phase) {
                     $scope.$apply();

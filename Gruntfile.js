@@ -333,8 +333,8 @@ module.exports = function (grunt) {
             prod: {
                 options: {
                     src: "./dist/",
-                    dest: "/home/dkwoods/davidkwoods.com",
-                    host: "dkwoods",
+                    dest: "/var/www",
+                    host: "davidkwoods",
                     syncDestIgnoreExcl: true
                 }
             }
