@@ -259,6 +259,51 @@ module.exports = function (grunt) {
                         ]
                     }
                 ]
+            },
+            configLocal: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= yeoman.app %>/scripts',
+                        dest: '<%= yeoman.app %>/scripts',
+                        src: [
+                            'config-local.js'
+                        ],
+                        rename: function(dest, src) {
+                            return dest + "/config.js";
+                        }
+                    }
+                ]
+            },
+            configStage: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= yeoman.app %>/scripts',
+                        dest: '<%= yeoman.app %>/scripts',
+                        src: [
+                            'config-stage.js'
+                        ],
+                        rename: function(dest, src) {
+                            return dest + "/config.js";
+                        }
+                    }
+                ]
+            },
+            configProd: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= yeoman.app %>/scripts',
+                        dest: '<%= yeoman.app %>/scripts',
+                        src: [
+                            'config-prod.js'
+                        ],
+                        rename: function(dest, src) {
+                            return dest + "/config.js";
+                        }
+                    }
+                ]
             }
         },
         concurrent: {
@@ -348,6 +393,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
+            'copy:configLocal',
             'concurrent:server',
             'connect:livereload',
             'open',
@@ -371,6 +417,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
+        'copy:configProd',
         'useminPrepare',
         'concurrent:dist',
         'concat',

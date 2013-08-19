@@ -3,6 +3,7 @@ dist
 .tmp
 .sass-cache
 app/bower_components
+app/scripts/config.js
 npm-debug.log
 site.iml
 .DS_Store
