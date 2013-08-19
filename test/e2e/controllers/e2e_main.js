@@ -140,22 +140,22 @@ describe('Navigation', function () {
         });
     });
 
-    describe('Clients', function() {
+    describe('Experience', function() {
         beforeEach(function() {
-            browser().navigateTo('/clients');
+            browser().navigateTo('/experience');
         });
 
-        it('should be at "/clients"', function() {
-            expect(browser().window().path()).toBe('/clients');
+        it('should be at "/experience"', function() {
+            expect(browser().window().path()).toBe('/experience');
         });
 
-        it('should show clients title', function() {
-            expect(element('title').text()).toContain("Clients");
+        it('should show experience title', function() {
+            expect(element('title').text()).toContain("Experience");
         });
 
-        it('should show clients content', function() {
+        it('should show experience content', function() {
             expect(element('.contentArea h1:first').count()).toEqual(1);
-            expect(element('.contentArea h1:first').text()).toContain("Clients");
+            expect(element('.contentArea h1:first').text()).toContain("Experience");
         });
     });
 

@@ -15,9 +15,10 @@ describe('Controller: MainCtrl', function () {
             , couch
             , util
             , contentArea
+            , routeParams
             ;
     // Initialize the controller and a mock scope
-    beforeEach(inject(function ($controller, $rootScope, $location, $httpBackend, $resource, OnesMock, OnesMock_Key2, Couch, Util) {
+    beforeEach(inject(function ($controller, $rootScope, $location, $httpBackend, $resource, $routeParams, OnesMock, OnesMock_Key2, Couch, Util) {
         scope = $rootScope.$new();
         location = $location;
         httpBackend = $httpBackend;
@@ -26,12 +27,16 @@ describe('Controller: MainCtrl', function () {
         onesMock_Key2 = OnesMock_Key2;
         couch = Couch;
         util = Util;
+        routeParams = $routeParams;
         MainCtrl = $controller('MainCtrl', {
             $scope: scope
+            ,$routeParams: routeParams
         });
         contentArea = $controller('ContentAreaCtrl', {
             $scope: scope
+            ,$routeParams: routeParams
         });
+//        routeParams.id = "";
     }));
 
     afterEach(function () {
@@ -76,9 +81,13 @@ describe('Controller: MainCtrl', function () {
         httpBackend.flush();
     });
 
-    it('should be able to "go" to another page', function() {
+    it('should be able to scope.go() to another page', function() {
         scope.go("/about");
         expect(location.url()).toBe('/about');
+        expect(location.url()).not.toBe('/');
+
+        scope.go("/experience");
+        expect(location.url()).toBe('/experience');
         expect(location.url()).not.toBe('/');
 
         scope.go("/");

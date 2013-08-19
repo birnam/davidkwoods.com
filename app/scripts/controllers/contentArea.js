@@ -1,12 +1,8 @@
 'use strict';
 
 angular.module('davidkwoodsApp')
-        .controller('ContentAreaCtrl', function ($scope, $rootScope, $location, Util) {
-            setPage($location.path());
-
-            $rootScope.$on('$locationChangeSuccess', function(event, newloc, oldloc) {
-                setPage($location.path());
-            });
+        .controller('ContentAreaCtrl', function ($scope, $rootScope, $routeParams, $location, Util) {
+            setPage($routeParams.id);
 
             $scope.go = function(url) {
                 $location.path(url);
@@ -15,11 +11,10 @@ angular.module('davidkwoodsApp')
             function setPage(str) {
                 $scope.pageRoute = str;
 
-
-                if (str == "/") {
+                if (typeof(str) == "undefined" || str == "") {
                     $rootScope.pageTitle = " :: Home";
                 } else {
-                    $rootScope.pageTitle = " :: " + Util.sentenceCase(str.replace("/", ""));
+                    $rootScope.pageTitle = " :: " + Util.sentenceCase(str);
                 }
                 if (!$scope.$$phase) {
                     $scope.$apply();

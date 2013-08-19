@@ -87,12 +87,15 @@ section.page {
     z-index: 2;
     margin: 0px ($minMargin + 10px) 0px $minMargin;
     min-height: 100px;
-    overflow: hidden;
+    overflow: visible;
     background: rgba(0, 0, 0, 0.5);
 }
 
 #nav_main {
-    float: left;
+    min-height: 260px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
     z-index: 3;
     width: 225px;
     background: $menuBackgroundImage 0 0 repeat;
@@ -170,11 +173,12 @@ section.page {
         }
     }
 
-    &.select_about #nav_main_select { top: 58px; }
-    &.select_skills #nav_main_select { top: 96px; }
-    &.select_clients #nav_main_select { top: 135px; }
-    &.select_portfolio #nav_main_select { top: 172px; }
-    &.select_contact #nav_main_select { top: 211px; }
+    &.select_about #nav_main_select { top: 56px; }
+    &.select_skills #nav_main_select { top: 95px; }
+    &.select_clients #nav_main_select,
+    &.select_experience #nav_main_select { top: 135px; }
+    &.select_portfolio #nav_main_select { top: 173px; }
+    &.select_contact #nav_main_select { top: 213px; }
 
     &.select_home {
         a.home {
@@ -213,6 +217,7 @@ nav.nav_contact {
     padding-left: $menuWidth;
     color: #ccc;
     line-height: 1.8em;
+    min-height: 180px;
 
     p {
         margin-bottom: 2.25em;

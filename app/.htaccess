@@ -218,6 +218,12 @@ AddDefaultCharset utf-8
 
 # send all unknown traffic to /
 <IfModule mod_rewrite.c>
+    RewriteRule ^about.html$ /about [R,L]
+    RewriteRule ^clients.html$ /clients [R,L]
+    RewriteRule ^contact.html$ /contact [R,L]
+    RewriteRule ^portfolio.html$ /portfolio [R,L]
+    RewriteRule ^skills.html$ /skills [R,L]
+
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^.*$ index.html [QSA,L]

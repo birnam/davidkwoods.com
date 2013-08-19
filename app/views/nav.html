@@ -1,4 +1,4 @@
-<nav id="nav_main" ng-class="selectRoute">
+<nav id="nav_main" data-ng-class="selectRoute">
     <div id="nav_main_select"></div>
     <a ng-repeat="page in mainNav" data-nav-item data-url="{{ page.url }}" class="{{ page.class }}">{{ page.title }}</a>
 </nav>

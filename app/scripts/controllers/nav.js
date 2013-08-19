@@ -1,26 +1,27 @@
 'use strict';
 
 angular.module('davidkwoodsApp')
-        .controller('MainNavCtrl', function ($scope, $rootScope, $location) {
-            $scope.selectRoute = "";
+        .controller('MainNavCtrl', function ($scope, $rootScope, $routeParams, $location) {
+            setSelection();
 
             $scope.mainNav = [
                 { title: "a", url: "/", class: "home" }
                 ,{ title: "Who am I?", url: "/about" }
                 ,{ title: "Skills", url: "/skills" }
-                ,{ title: "Experience", url: "/clients" }
+                ,{ title: "Experience", url: "/experience" }
                 ,{ title: "Work", url: "/portfolio" }
                 ,{ title: "Contact", url: "/contact" }
             ];
 
-            $rootScope.$on('$locationChangeSuccess', function(event, newloc, oldloc) {
-                switch($location.path()) {
-                    case "/about":
-                    case "/skills":
-                    case "/clients":
-                    case "/portfolio":
-                    case "/contact":
-                        $scope.selectRoute = "select_" + $location.path().replace("/", "");
+            function setSelection() {
+                switch($routeParams.id.toLowerCase()) {
+                    case "about":
+                    case "skills":
+                    case "clients":
+                    case "experience":
+                    case "portfolio":
+                    case "contact":
+                        $scope.selectRoute = "select_" + $routeParams.id.toLowerCase();
                         break;
                     default:
                         $scope.selectRoute = "select_home";
@@ -28,10 +29,9 @@ angular.module('davidkwoodsApp')
                 if (!$scope.$$phase) {
                     $scope.$apply();
                 }
-            });
+            }
 
             $scope.nav = function(url) {
-//                console.log("new url", url);
                 $location.path(url);
                 $scope.$apply();
             }

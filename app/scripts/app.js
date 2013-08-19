@@ -6,30 +6,26 @@ angular.module('davidkwoodsApp', [
         ])
         .config(function ($routeProvider, $locationProvider) {
             $routeProvider
-                    .when('/', {
-                        templateUrl: 'views/main.html',
-                        controller: 'MainCtrl'
-                    })
-                    .when('/about', {
-                        templateUrl: 'views/main.html',
-                        controller: 'MainCtrl'
-                    })
-                    .when('/skills', {
-                        templateUrl: 'views/main.html',
-                        controller: 'MainCtrl'
-                    })
-                    .when('/clients', {
-                        templateUrl: 'views/main.html',
-                        controller: 'MainCtrl'
-                    })
-                    .when('/portfolio', {
-                        templateUrl: 'views/main.html',
-                        controller: 'MainCtrl'
-                    })
-                    .when('/contact', {
-                        templateUrl: 'views/main.html',
-                        controller: 'MainCtrl'
-                    })
+//                    .when('/about', {
+//                        templateUrl: 'views/view.html',
+//                        controller: 'ViewCtrl'
+//                    })
+//                    .when('/skills', {
+//                        templateUrl: 'views/main.html',
+//                        controller: 'MainCtrl'
+//                    })
+//                    .when('/clients', {
+//                        templateUrl: 'views/main.html',
+//                        controller: 'MainCtrl'
+//                    })
+//                    .when('/portfolio', {
+//                        templateUrl: 'views/main.html',
+//                        controller: 'MainCtrl'
+//                    })
+//                    .when('/contact', {
+//                        templateUrl: 'views/main.html',
+//                        controller: 'MainCtrl'
+//                    })
                     .when('/test.html', {
                         templateUrl: 'views/dbtests.html',
                         controller: 'DBTests'
@@ -37,6 +33,10 @@ angular.module('davidkwoodsApp', [
                     .when('/testtt', {
                         templateUrl: 'views/dbtests.html',
                         controller: 'DBTests'
+                    })
+                    .when('/:id', {
+                        templateUrl: 'views/viewContainer.html',
+                        controller: 'ViewContainerCtrl'
                     })
                     .otherwise({
                         redirectTo: '/'
