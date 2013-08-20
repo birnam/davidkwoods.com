@@ -1,13 +1,14 @@
 'use strict';
 
-describe('Factory: ContactNav', function () {
+describe('Factory: MainNav', function () {
 
     var mainNavCtrl
-            , contactNavCtrl
+            , mainNavCtrl
             , scope
             , httpBackend
-            , contactNav
-            , contactNavMock
+            , routeParams
+            , mainNav
+            , mainNavMock
             , db
             ;
 
@@ -15,25 +16,29 @@ describe('Factory: ContactNav', function () {
     beforeEach(module('davidkwoodsApp'));
 
     // Initialize the controller and a mock scope
-    beforeEach(inject(function ($controller, $rootScope, ContactNavFactory, $httpBackend, ContactNavMock, DB) {
+    beforeEach(inject(function ($controller, $rootScope, $routeParams, MainNavFactory, $httpBackend, MainNavMock, DB) {
         scope = $rootScope.$new();
-        contactNav = ContactNavFactory;
+        mainNav = MainNavFactory;
         httpBackend = $httpBackend;
         db = DB;
-        contactNavMock = ContactNavMock;
+//        routeParams = $routeParams;
+        routeParams = { id: "" };
+        mainNavMock = MainNavMock;
 
-        httpBackend.when('JSONP', db + "/_design/contactNav/_view/items?callback=JSON_CALLBACK&jsonp=JSON_CALLBACK").respond(contactNavMock);
+        httpBackend.when('JSONP', db + "/_design/mainNav/_view/items?callback=JSON_CALLBACK&jsonp=JSON_CALLBACK").respond(mainNavMock);
 
         mainNavCtrl = $controller('MainCtrl', {
             $scope: scope
-            ,ContactNavFactory: contactNav
+            ,MainNavFactory: mainNav
             ,DB: db
+            ,$routeParams: routeParams
         });
 
-        contactNavCtrl = $controller('ContactNavCtrl', {
+        mainNavCtrl = $controller('MainNavCtrl', {
             $scope: scope
-            ,ContactNavFactory: contactNav
+            ,MainNavFactory: mainNav
             ,DB: db
+            ,$routeParams: routeParams
         });
 
         httpBackend.flush();
@@ -45,11 +50,11 @@ describe('Factory: ContactNav', function () {
     });
 
     it('should provide a "get" function', function() {
-        expect(typeof(contactNav.get)).toBe('function');
+        expect(typeof(mainNav.get)).toBe('function');
     })
 
     it('should be able to "get" data', function() {
-        contactNav.get().then(function(ret) {
+        mainNav.get().then(function(ret) {
             expect(ret).toBeDefined();
             expect(ret.length).toBeGreaterThan(0);
         }, function(msg) {
@@ -61,8 +66,8 @@ describe('Factory: ContactNav', function () {
         expect(function() { httpBackend.flush() }).toThrow("No pending request to flush !");
     });
 
-    it('should have populated scope.navContact', function() {
-        expect(scope.navContact).toBeDefined();
-        expect(scope.navContact.length).toBeGreaterThan(0);
+    it('should have populated scope.mainNav', function() {
+        expect(scope.mainNav).toBeDefined();
+        expect(scope.mainNav.length).toBeGreaterThan(0);
     });
 });

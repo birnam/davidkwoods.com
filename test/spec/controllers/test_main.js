@@ -36,7 +36,6 @@ describe('Controller: MainCtrl', function () {
             $scope: scope
             ,$routeParams: routeParams
         });
-//        routeParams.id = "";
     }));
 
     afterEach(function () {
