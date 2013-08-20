@@ -44,9 +44,12 @@
     <script>
       WebFont.load({
         google: {
-          families: ['Josefin+Sans:700:latin', 'Raleway::latin'],
-          urls: ['/styles/fonts/icomoon67876/style.css']
+          families: ['Josefin+Sans:700:latin', 'Raleway::latin']
         }
+        ,custom: {
+              families: ['icomoon'],
+              urls: ['/styles/fonts/icomoon402/style.css']
+          }
       });
     </script>
 
@@ -108,6 +111,8 @@
 
         <script src="scripts/services/couch.js"></script>
         <script src="scripts/services/util.js"></script>
+
+        <script src="scripts/services/contactNavFactory.js"></script>
 
         <script src="scripts/models/coloredBackground.js"></script>
         <!-- endbuild -->

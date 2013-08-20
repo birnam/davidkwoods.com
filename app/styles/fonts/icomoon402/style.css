@@ -27,7 +27,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-home, .icon-stack, .icon-book, .icon-image, .icon-headphones, .icon-envelop, .icon-phone, .icon-bubbles, .icon-key, .icon-cogs, .icon-cog, .icon-leaf, .icon-switch, .icon-lightning, .icon-fire, .icon-link, .icon-bookmarks, .icon-cancel-circle, .icon-checkmark-circle, .icon-spam, .icon-close, .icon-checkmark, .icon-plus, .icon-minus, .icon-console, .icon-mail, .icon-share, .icon-mail-2, .icon-google-plus, .icon-google-plus-2, .icon-facebook, .icon-facebook-2, .icon-facebook-3, .icon-instagram, .icon-twitter, .icon-twitter-2, .icon-twitter-3, .icon-feed, .icon-feed-2, .icon-feed-3, .icon-steam, .icon-steam-2, .icon-github, .icon-github-2, .icon-github-3, .icon-github-4, .icon-github-5, .icon-tux, .icon-apple, .icon-android, .icon-windows, .icon-windows8, .icon-soundcloud, .icon-soundcloud-2, .icon-skype, .icon-linkedin, .icon-delicious, .icon-stackoverflow, .icon-html5, .icon-html5-2, .icon-css3, .icon-IE, .icon-opera, .icon-safari, .icon-firefox, .icon-chrome {
+.icon-home, .icon-stack, .icon-book, .icon-image, .icon-headphones, .icon-envelop, .icon-phone, .icon-bubbles, .icon-key, .icon-cogs, .icon-cog, .icon-leaf, .icon-switch, .icon-lightning, .icon-fire, .icon-link, .icon-bookmarks, .icon-cancel-circle, .icon-checkmark-circle, .icon-spam, .icon-close, .icon-checkmark, .icon-plus, .icon-minus, .icon-console, .icon-mail, .icon-share, .icon-mail-2, .icon-google-plus, .icon-google-plus-2, .icon-facebook, .icon-facebook-2, .icon-facebook-3, .icon-instagram, .icon-twitter, .icon-twitter-2, .icon-twitter-3, .icon-feed, .icon-feed-2, .icon-feed-3, .icon-steam, .icon-steam-2, .icon-github, .icon-github-2, .icon-github-3, .icon-github-4, .icon-github-5, .icon-tux, .icon-apple, .icon-android, .icon-windows, .icon-windows8, .icon-soundcloud, .icon-soundcloud-2, .icon-skype, .icon-linkedin, .icon-delicious, .icon-stackoverflow, .icon-html5, .icon-html5-2, .icon-css3, .icon-IE, .icon-opera, .icon-safari, .icon-firefox, .icon-chrome, .icon-profile, .icon-qrcode, .icon-location, .icon-file, .icon-file-2, .icon-file-3, .icon-music, .icon-camera, .icon-images, .icon-user, .icon-users, .icon-wrench, .icon-cog-2, .icon-earth, .icon-file-xml, .icon-file-css, .icon-file-excel, .icon-file-pdf {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -234,4 +234,58 @@ you can use the generic selector below, but it's slower:
 }
 .icon-chrome:before {
 	content: "\24";
+}
+.icon-profile:before {
+	content: "\22";
+}
+.icon-qrcode:before {
+	content: "\25";
+}
+.icon-location:before {
+	content: "\26";
+}
+.icon-file:before {
+	content: "\27";
+}
+.icon-file-2:before {
+	content: "\28";
+}
+.icon-file-3:before {
+	content: "\29";
+}
+.icon-music:before {
+	content: "\2a";
+}
+.icon-camera:before {
+	content: "\2b";
+}
+.icon-images:before {
+	content: "\2c";
+}
+.icon-user:before {
+	content: "\2d";
+}
+.icon-users:before {
+	content: "\2e";
+}
+.icon-wrench:before {
+	content: "\2f";
+}
+.icon-cog-2:before {
+	content: "\3a";
+}
+.icon-earth:before {
+	content: "\3b";
+}
+.icon-file-xml:before {
+	content: "\3c";
+}
+.icon-file-css:before {
+	content: "\3d";
+}
+.icon-file-excel:before {
+	content: "\3e";
+}
+.icon-file-pdf:before {
+	content: "\3f";
 }

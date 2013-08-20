@@ -31,6 +31,12 @@ angular.module('davidkwoodsApp.services')
                     });
                 }
 
+                Couch.get = function() {
+                    params.callback = "JSON_CALLBACK";
+                    params.jsonp = "JSON_CALLBACK";
+                    return $http.jsonp(url, { params: params });
+                }
+
                 return Couch;
             }
 

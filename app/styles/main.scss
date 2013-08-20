@@ -194,7 +194,7 @@ section.page {
 nav.nav_contact {
     position: absolute;
     top: 20px;
-    right: $minMargin;
+    right: $minMargin + 20px;
     z-index: 2;
 
     a {

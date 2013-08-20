@@ -1,6 +1,3 @@
 <nav class="nav_contact">
-    <a href="#">z</a>
-    <a href="#">F</a>
-    <a href="#">J</a>
-    <a href="#">3</a>
+    <a ng-repeat="contact in navContact" target="{{ contact.target }}" href="{{ contact.url }}" title="{{ contact.title }}">{{ contact.text }}</a>
 </nav>
