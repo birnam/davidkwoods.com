@@ -5,13 +5,8 @@ angular.module("davidkwoodsApp")
             return {
                 items: null
 
-                ,get: function(doReload) {
+                ,get: function() {
                     var deferred = $q.defer();
-
-                    if (!doReload && this.items != null) {
-                        deferred.resolve(this.items);
-                        return deferred.promise;
-                    }
 
                     var c = Couch(DB + "/_design/mainNav/_view/items");
                     c.get().then(angular.bind(this, function(ret) {
