@@ -2,6 +2,8 @@
 
 angular.module('davidkwoodsApp')
         .controller('ContentAreaCtrl', function ($scope, $rootScope, $routeParams, $location, Util) {
+            $scope.page404 = "/views/404.html";
+
             setPage($routeParams.id);
 
             $scope.go = function(url) {

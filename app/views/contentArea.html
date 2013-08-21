@@ -1,5 +1,5 @@
 <div class="contentArea" ng-switch="pageRoute">
-    <div ng-switch-default>404 Page Not Found</div>
+    <div ng-switch-default><div data-ng-include="page404"></div></div>
     <div ng-switch-when=""><div data-home-page></div></div>
     <div ng-switch-when="about"><div data-about-page></div></div>
     <div ng-switch-when="skills"><div data-skills-page></div></div>

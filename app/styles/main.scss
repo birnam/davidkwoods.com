@@ -54,6 +54,25 @@ h4 { font-size: 14px; }
 h5 { font-size: 13px; }
 h6 { font-size: 12px; }
 
+a {
+    color: $highlightColor;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+        color: lighten($highlightColor, 30%);
+
+        &:visited {
+            text-decoration: none;
+            border-bottom: dashed 1px lighten($highlightColor, 30%);
+        }
+    }
+
+    &:visited {
+        border-bottom: dashed 1px $highlightColor;
+    }
+}
+
 .container {
     position: relative;
     padding-top: 174px;
@@ -221,7 +240,7 @@ nav.nav_contact {
     min-height: 180px;
 
     p {
-        margin-bottom: 2.25em;
+        margin-bottom: 1.8em;
     }
 
     h1 {
@@ -250,3 +269,43 @@ nav.nav_contact {
     }
 }
 
+.rightimg {
+    float: right;
+    border: solid 1px #333;
+    padding: 0px;
+    margin-left: 40px;
+    margin-right: -40px;
+    border-right: none;
+}
+.todo {
+    position: relative;
+    left: -16px;
+    top: -2px;
+    height: 10px;
+    overflow: visible;
+    font: normal 11px "Courier New", monospace;
+    color: #DAAF28;
+    @include rotate(-1.5deg);
+
+    &.v2 {
+        top: -8px;
+        height: 4px;
+        font-size: 10px;
+        @include rotate(0.75deg);
+    }
+
+    &.v3 {
+        top: -2px;
+        left: 14px;
+        height: 4px;
+        font-size: 11px;
+        @include rotate(-2.25deg);
+    }
+}
+
+.secondarytext {
+    font-size: 90%;
+    p {
+        margin-bottom: 12px;
+    }
+}
