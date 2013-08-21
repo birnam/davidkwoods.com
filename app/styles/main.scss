@@ -273,8 +273,7 @@ nav.nav_contact {
     float: right;
     border: solid 1px #333;
     padding: 0px;
-    margin-left: 40px;
-    margin-right: -40px;
+    margin: 0 -40px 40px 40px;
     border-right: none;
 }
 .todo {
@@ -300,6 +299,11 @@ nav.nav_contact {
         height: 4px;
         font-size: 11px;
         @include rotate(-2.25deg);
+    }
+
+    &.v4 {
+        top: -12px;
+        font-size: 11px;
     }
 }
 
