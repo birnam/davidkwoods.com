@@ -68,13 +68,19 @@ describe('Controller: MainCtrl', function () {
         httpBackend.when('JSONP', "http://localhost/testing/_design/numbering/_view/ones?callback=JSON_CALLBACK&jsonp=JSON_CALLBACK").respond(onesMock);
 
         var c = couch("http://localhost:5984/testing/_design/numbering/_view/ones");
-        var ret = c.query(function(value) {
+        c.get().then(function(ret) {
+            var value = ret.data.rows;
             expect(value.length).toBe(3);
+        }, function() {
+            expect('could not retrieve data (numbering)').toBe("");
         });
 
         var k = couch("http://localhost:5984/testing/_design/numbering/_view/ones", {"key": '"2"'});
-        var retk = k.query(function(value) {
+        k.get().then(function(ret) {
+            var value = ret.data.rows;
             expect(value.length).toBe(1);
+        }, function() {
+            expect('could not retrieve data (numbering ones)').toBe("");
         });
 
         httpBackend.flush();

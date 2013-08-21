@@ -60,7 +60,7 @@ angular.module('davidkwoodsApp.services')
                     if (cached) {
                         deferred.resolve(cached);
                     } else {
-                        $http.jsonp(url, { params: params, cache: true }).then(function(ret) {
+                        $http.jsonp(url, { params: params }).then(function(ret) {
                             $couchCache.put(cacheurl, ret);
                             deferred.resolve(ret);
                         }, function() {

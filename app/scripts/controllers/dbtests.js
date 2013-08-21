@@ -8,13 +8,13 @@ angular.module('davidkwoodsApp')
 
             $scope.fetchOnes = function() {
                 var res = Couch('http://localhost:5984/testing/_design/numbering/_view/ones');
-                var ret = res.query(function(value) {
-                    $scope.Ones = value;
+                res.get().then(function(ret) {
+                    $scope.Ones = ret.data.rows;
                 });
 
                 var res2 = Couch('http://localhost:5984/testing/_design/numbering/_view/ones', {"key": '"2"'});
-                var ret2 = res2.query(function(value) {
-                    $scope.OnesKey2 = value;
+                res2.get().then(function(ret) {
+                    $scope.OnesKey2 = ret.data.rows;
                 });
             };
 

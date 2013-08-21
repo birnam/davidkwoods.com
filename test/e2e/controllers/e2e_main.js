@@ -98,7 +98,7 @@ describe('Navigation', function () {
 
         it('should show home content', function() {
             expect(element('.contentArea h1:first').count()).toEqual(1);
-            expect(element('.contentArea h1:first').text()).toContain("Home");
+            expect(element('.contentArea h1:first').text()).toContain("Welcome");
         });
     });
 
@@ -117,7 +117,7 @@ describe('Navigation', function () {
 
         it('should show about content', function() {
             expect(element('.contentArea h1:first').count()).toEqual(1);
-            expect(element('.contentArea h1:first').text()).toContain("About");
+            expect(element('.contentArea h1:first').text()).toContain("Who");
         });
     });
 
