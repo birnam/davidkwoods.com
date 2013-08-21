@@ -40,16 +40,28 @@ angular.module('davidkwoodsApp.services')
 //                }
 
                 Couch.get = function() {
+                    var cacheparams = [];
+                    for (var p in params) {
+                        cacheparams.push(p + "=" + params[p]);
+                    }
+                    cacheparams.sort();
+
                     params.callback = "JSON_CALLBACK";
                     params.jsonp = "JSON_CALLBACK";
 
                     var deferred = $q.defer();
-                    var cached = $couchCache.get(url);
+
+                    var cacheurl = url;
+                    if (cacheparams.length > 0) {
+                        cacheurl += "?" + cacheparams.join("&");
+                    }
+
+                    var cached = $couchCache.get(cacheurl);
                     if (cached) {
                         deferred.resolve(cached);
                     } else {
                         $http.jsonp(url, { params: params, cache: true }).then(function(ret) {
-                            $couchCache.put(url, ret);
+                            $couchCache.put(cacheurl, ret);
                             deferred.resolve(ret);
                         }, function() {
                             // error Doctor Alban!!
