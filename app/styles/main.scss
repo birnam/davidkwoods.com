@@ -54,6 +54,10 @@ h4 { font-size: 14px; }
 h5 { font-size: 13px; }
 h6 { font-size: 12px; }
 
+h2 {
+    margin-bottom: 10px;
+}
+
 a {
     color: $highlightColor;
     text-decoration: none;
@@ -305,11 +309,121 @@ nav.nav_contact {
         top: -12px;
         font-size: 11px;
     }
+
+    &.v5 {
+        top: -8px;
+        font-size: 11px;
+        height: 30px;
+        @include rotate(1.5deg);
+    }
 }
 
 .secondarytext {
     font-size: 90%;
     p {
         margin-bottom: 12px;
+    }
+}
+
+dl {
+    font-size: 90%;
+    margin-left: 20px;
+    border: solid 1px #333;
+    display: inline-block;
+
+    dd {
+        margin-left: 102px;
+        padding: 6px 20px 6px 14px;
+        border-bottom: solid 1px #333;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    dt {
+        background: #222;
+        float: left;
+        width: 90px;
+        padding: 6px;
+        border-bottom: solid 1px #333;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.skillyear, .skillhalfyear, .skillexposure {
+    display: inline-block;
+    height: 6px;
+    background: #6FC740;
+    margin-right: 2px;
+    border: solid 1px #7CE04B;
+    @include gradient-vertical-three-colors(#b4e391, #61c419, 76%, #249915);
+
+    &.special {
+        @include box-shadow(0 0 10px #fff);
+        @include gradient-vertical-three-colors(lighten(#b4e391, 20%), lighten(#61c419, 20%), 76%, lighten(#249915, 20%));
+    }
+}
+
+.skillyear {
+    width: 20px;
+    @include border-radius(3px);
+}
+
+.skillhalfyear {
+    width: 10px;
+    border-right: none;
+    @include border-left-radius(3px);
+}
+
+.skillexposure {
+    width: 4px;
+    border-right: none;
+    @include border-left-radius(3px);
+}
+
+.skillgrid {
+    .skill {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 4px;
+
+        .skilllabel {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            font-size: 12px;
+            padding: 1px 8px;
+            background: #222;
+
+            &.grouplabel {
+                color: $highlightColor;
+                background: #333;
+                width: 160px;
+                height: 23px;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 3px;
+                    right: -10px;
+                    height: 20px;
+                    width: 20px;
+                    background: #333;
+                    @include rotate(45deg);
+                }
+            }
+        }
+
+        .skillexp {
+            min-height: 19px;
+            margin-left: 150px;
+            line-height: 12px;
+            padding: 3px 0;
+        }
     }
 }

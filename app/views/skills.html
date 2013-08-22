@@ -1,2 +1,20 @@
 <h1>{{ title }}</h1>
 <div data-ng-bind-html-unsafe="content"></div>
+
+<div ng-repeat="group in skillGroups">
+    <h2>{{ group.text }}</h2>
+    <div class="skillgrid">
+        <div ng-repeat="section in group.sections">
+            <div class="skill">
+                <div class="skilllabel grouplabel">{{ section.text }}</div>
+                <div>&nbsp;</div>
+            </div>
+            <div ng-repeat="skill in section.skills" class="skill">
+                <div class="skilllabel">{{ skill.text }}</div>
+                <div class="skillexp">
+                    <span ng-repeat="y in skill.years" class="skillyear"></span><span ng-repeat="hy in skill.halfyears" class="skillhalfyear"></span><span ng-repeat="ex in skill.exposures" class="skillexposure"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

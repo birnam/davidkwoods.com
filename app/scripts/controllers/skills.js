@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('davidkwoodsApp')
-        .controller('SkillsCtrl', function ($scope, PageContent, ErrorsModel) {
+        .controller('SkillsCtrl', function ($scope, PageContent, Skills, ErrorsModel) {
             PageContent.getPage("skills").then(function(ret) {
                 if (ret && ret.data) {
                     if (ret.data.rows && ret.data.rows.length > 0) {
@@ -16,5 +16,15 @@ angular.module('davidkwoodsApp')
                         $scope.$apply();
                     }
                 }
+            });
+
+            Skills.getSkills().then(function(ret) {
+                console.log("data", ret);
+                $scope.skillGroups = ret;
+                if (!$scope.$$phase) {
+                    $scope.$apply();
+                }
+            }, function(msg) {
+                console.log("Error retrieving skills.  " + msg);
             });
         });
