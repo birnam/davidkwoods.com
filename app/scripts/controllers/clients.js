@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('davidkwoodsApp')
-        .controller('ClientsCtrl', function ($scope, PageContent, ErrorsModel) {
+        .controller('ClientsCtrl', function ($scope, PageContent, Experience, ErrorsModel) {
             PageContent.getPage("experience").then(function(ret) {
                 if (ret && ret.data) {
                     if (ret.data.rows && ret.data.rows.length > 0) {
@@ -16,5 +16,15 @@ angular.module('davidkwoodsApp')
                         $scope.$apply();
                     }
                 }
+            });
+
+            Experience.getExperience().then(function(ret) {
+                console.log("data", ret);
+                $scope.clientGroups = ret;
+                if (!$scope.$$phase) {
+                    $scope.$apply();
+                }
+            }, function(msg) {
+                console.log("Error retrieving experience.  " + msg);
             });
         });

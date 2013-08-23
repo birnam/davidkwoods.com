@@ -55,6 +55,7 @@ h5 { font-size: 13px; }
 h6 { font-size: 12px; }
 
 h2 {
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 
@@ -386,6 +387,8 @@ dl {
 }
 
 .skillgrid {
+    margin-bottom: 14px;
+
     .skill {
         position: relative;
         overflow: hidden;
@@ -401,10 +404,11 @@ dl {
             background: #222;
 
             &.grouplabel {
+                margin-top: 10px;
                 color: $highlightColor;
                 background: #333;
                 width: 160px;
-                height: 23px;
+                height: 33px;
 
                 &:after {
                     content: '';
@@ -416,14 +420,29 @@ dl {
                     background: #333;
                     @include rotate(45deg);
                 }
+
+                & ~ div {
+                    margin-top: 10px;
+                }
             }
         }
 
-        .skillexp {
+        .skillexp, .skilldesc {
             min-height: 19px;
             margin-left: 150px;
             line-height: 12px;
             padding: 3px 0;
+        }
+
+        .skilldates {
+            font-size: 11px;
+            margin-left: 200px;
+        }
+
+        .skilldesc {
+            font-size: 12px;
+            padding: 7px 0 0;
+            line-height: 1.3em;
         }
     }
 }

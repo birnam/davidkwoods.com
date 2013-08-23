@@ -1,2 +1,18 @@
 <h1>{{ title }}</h1>
 <div data-ng-bind-html-unsafe="content"></div>
+
+<div ng-repeat="group in clientGroups">
+    <h2>{{ group.text }}</h2>
+    <div class="skillgrid">
+        <div ng-repeat="client in group.clients">
+            <div class="skill">
+                <div class="skilllabel grouplabel">{{ client.text }}</div>
+                <div class="skilldates">{{ client.dates }} <span style="margin-left: 30px; ">{{ client.location }}</span></div>
+            </div>
+            <div ng-repeat="experience in client.experiences" class="skill">
+                <div class="skilllabel">{{ experience.text }}</div>
+                <div class="skilldesc">{{ experience.experience }}</div>
+            </div>
+        </div>
+    </div>
+</div>
