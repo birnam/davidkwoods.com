@@ -1,6 +1,6 @@
 <div id="logContainer">
     <div class="logtitle">site log - behind the scenes look at what happens on the page!</div>
     <div class="log">
-        <div data-ng-repeat="itm in logItems"><span>{{ $index }}</span>{{ itm }}</div>
+        <div data-ng-repeat="itm in logItems" data-ng-class="itm.class"><span>{{ $index }}</span>{{ itm.msg }}</div>
     </div>
 </div>

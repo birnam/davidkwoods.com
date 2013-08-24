@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('davidkwoodsApp')
-        .controller('AboutCtrl', function ($scope, PageContent, ErrorsModel) {
+        .controller('AboutCtrl', function ($scope, $rootScope, PageContent, ErrorsModel) {
             PageContent.getPage("about").then(function(ret) {
+                $rootScope.$emit("appendLog", "AboutCtrl has received page content");
+
                 if (ret && ret.data) {
                     if (ret.data.rows && ret.data.rows.length > 0) {
                         angular.extend($scope, ret.data.rows[0].value);

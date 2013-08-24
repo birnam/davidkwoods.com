@@ -7,10 +7,14 @@ angular.module('davidkwoodsApp')
             setPage($routeParams.id);
 
             $scope.go = function(url) {
+                $rootScope.$emit("appendLog", "ContentAreaCtrl is redirecting user to " + url);
+
                 $location.path(url);
             }
 
             function setPage(str) {
+                $rootScope.$emit("appendLog", "ContentAreaCtrl is setting visible page to " + str);
+
                 $scope.pageRoute = str;
 
                 if (typeof(str) == "undefined" || str == "") {

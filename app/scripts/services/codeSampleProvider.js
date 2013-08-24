@@ -4,19 +4,25 @@ angular.module("davidkwoodsApp")
        .provider("CodeSamples", function() {
             this.dbpath = "/_design/codesamples/_view/projects";
 
-            this.$get = function(DB, $q, Couch) {
+            this.$get = function(DB, $q, $rootScope, Couch) {
                 return {
                     groups: []
                     ,dbpath: this.dbpath
 
                     ,getCodeSamples: function() {
+                        $rootScope.$emit("appendLog", "CodeSamplesProvider is retrieving list of code samples from Couch service");
+
                         var couch = Couch(DB + this.dbpath);
 
                         var deferred = $q.defer();
                         couch.get().then(angular.bind(this, function(ret) {
+                            $rootScope.$emit("appendLog", "CodeSampleFactory has received code samples");
+
                             this.groups = this._processResults(ret.data.rows);
                             deferred.resolve(this.groups);
                         }), function(msg) {
+                            $rootScope.$emit("appendLogError", "ERROR!! CodeSampleFactory has not received any code samples");
+
                             deferred.reject("Code Sample retrieval failed! " + msg);
                         });
 
@@ -24,6 +30,8 @@ angular.module("davidkwoodsApp")
                     }
 
                     ,_processResults: function(data) {
+                        $rootScope.$emit("appendLog", "CodeSampleFactory is collating results");
+
                         var grps = [];
                         var curData = 0;
 

@@ -4,12 +4,14 @@ angular.module("davidkwoodsApp")
        .provider("Skills", function() {
             this.dbpath = "/_design/skills/_view/skills";
 
-            this.$get = function(DB, $q, Couch) {
+            this.$get = function(DB, $q, $rootScope, Couch) {
                 return {
                     groups: []
                     ,dbpath: this.dbpath
 
                     ,getSkills: function() {
+                        $rootScope.$emit("appendLog", "SkillsProvider is retrieving skills from the Couch service");
+
                         var couch = Couch(DB + this.dbpath);
 
                         var deferred = $q.defer();
@@ -17,6 +19,8 @@ angular.module("davidkwoodsApp")
                             this.groups = this._processResults(ret.data.rows);
                             deferred.resolve(this.groups);
                         }), function(msg) {
+                            $rootScope.$emit("appendLogError", "ERROR!! SkillsProvider data retrieval has failed");
+
                             deferred.reject("Skills retrieval failed! " + msg);
                         });
 
@@ -24,6 +28,8 @@ angular.module("davidkwoodsApp")
                     }
 
                     ,_processResults: function(data) {
+                        $rootScope.$emit("appendLog", "SkillsProvider is collating received data");
+
                         var grps = [];
                         var curData = 0;
 

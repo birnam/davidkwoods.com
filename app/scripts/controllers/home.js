@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('davidkwoodsApp')
-        .controller('HomeCtrl', function ($scope, PageContent, ErrorsModel) {
+        .controller('HomeCtrl', function ($scope, $rootScope, PageContent, ErrorsModel) {
             PageContent.getPage("").then(function(ret) {
+                $rootScope.$emit("appendLog", "HomeCtrl has receive page content");
+
                 if (ret && ret.data) {
                     if (ret.data.rows && ret.data.rows.length > 0) {
                         angular.extend($scope, ret.data.rows[0].value);

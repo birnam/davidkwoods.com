@@ -13,17 +13,30 @@ angular.module('davidkwoodsApp')
             });
 
             $rootScope.$on("appendLog", angular.bind(this, function(event, msg) {
+                appendLog(msg);
+            }));
+
+            $rootScope.$on("appendLogError", angular.bind(this, function(event, msg) {
+                appendLog(msg, "error");
+            }));
+
+            function appendLog(msg, classname) {
                 if (!$rootScope.logItems) {
-                    $rootScope.logItems = [];
+                    $rootScope.logItems = [{
+                        msg: "Logging initialized"
+                    }];
                 }
-                if (msg != $rootScope.logItems[$rootScope.logItems.length - 1]) {
-                    $rootScope.logItems.push(msg)
+                if (msg != $rootScope.logItems[$rootScope.logItems.length - 1].msg) {
+                    $rootScope.logItems.push({
+                        msg: msg
+                        ,class: classname
+                    })
                     $scope.logItems = $rootScope.logItems;
 
                     $timeout(function() {
                         $('#logContainer .log').scrollTop($('#logContainer .log')[0].scrollHeight);
                     }, 10);
                 }
-            }));
+            }
 
         });

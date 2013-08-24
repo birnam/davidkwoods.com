@@ -19,6 +19,8 @@ angular.module('davidkwoodsApp')
                     $scope.wheelAccumulate += (delta / Math.abs(delta));
 
                     if (Math.abs($scope.wheelAccumulate) > 30) {
+                        $rootScope.$emit("appendLog", "use mouse wheel to scroll through photos in slideshow");
+
                         if ($scope.wheelAccumulate < 0 && $scope.curIndex > 0) {
                             $scope.showPrev();
                         } else if ($scope.wheelAccumulate > 0 && $scope.curIndex < $scope.photos.length - 1) {
@@ -47,6 +49,8 @@ angular.module('davidkwoodsApp')
 
                     $scope.photos = angular.copy(newphotos);
                 }), angular.bind(this, function(ret) {
+                    $rootScope.$emit("appendLogError", "ERROR! could not load Flickr set# " + setid);
+
                     console.log("can't access flickr. sorry!");
                 }));
             }));
@@ -62,10 +66,14 @@ angular.module('davidkwoodsApp')
             }
 
             $scope.showNext = function() {
+                $rootScope.$emit("appendLog", "increase $scope.curIndex to show next image");
+
                 $scope.curIndex = Math.min($scope.photos.length - 1, $scope.curIndex + 1);
             }
 
             $scope.showPrev = function() {
+                $rootScope.$emit("appendLog", "decrease $scope.curIndex to show prev image");
+
                 $scope.curIndex = Math.max(0, $scope.curIndex - 1);
             }
 
@@ -84,6 +92,8 @@ angular.module('davidkwoodsApp')
                 pic.image = "http://farm" + pic.farm +
                             ".static.flickr.com/" + pic.server +
                             "/" + pic.id + "_" + pic.secret + "_b.jpg";
+
+                $rootScope.$emit("appendLog", "build flickr photo url for photo " + photo);
 
                 return pic;
             }

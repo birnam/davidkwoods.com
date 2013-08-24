@@ -7,6 +7,8 @@ angular.module('davidkwoodsApp')
             $scope.mainNav = [];
 
             MainNavFactory.get().then(function (ret) {
+                $rootScope.$emit("appendLog", "MainNavCtrl has received nav items");
+
                 $scope.mainNav = [];
                 for (var item in ret) {
                     $scope.mainNav.push(ret[item].value);
@@ -16,6 +18,8 @@ angular.module('davidkwoodsApp')
                     $scope.$apply();
                 }
             }, function (msg) {
+                $rootScope.$emit("appendLogError", "ERROR!! MainNavCtrl failed to receive nav items");
+
                 $scope.mainNav = [];
 
                 if (!$scope.$$phase) {
@@ -32,6 +36,7 @@ angular.module('davidkwoodsApp')
             }
 
             function setSelection(selid) {
+
                 if ($rootScope.prevPage != undefined && $rootScope.prevPage != null) {
                     var prev = $rootScope.prevPage;
                     $rootScope.prevPage = null;
@@ -40,6 +45,7 @@ angular.module('davidkwoodsApp')
                 }
 
                 selid = (selid == undefined || selid == null)?$routeParams.id.toLowerCase():selid;
+                $rootScope.$emit("appendLog", "MainNavCtrl is selecting new item: " + selid);
                 switch(selid) {
                     case "about":
                     case "skills":
@@ -64,10 +70,14 @@ angular.module('davidkwoodsApp')
             $rootScope.$on("$routeChangeSuccess", function(event, current, previous) {
                 // the controller redraw is killing the animations, so we need to
                 // store the previous page and set that one first when the page reloads
+                $rootScope.$emit("appendLog", "MainNavCtrl has detected a route change");
+
                 $rootScope.prevPage = previous.params.id;
             });
 
             $scope.nav = function(url) {
+                $rootScope.$emit("appendLog", "MainNavCtrl has been clicked. Redirecting user to " + url);
+
                 $location.path(url);
                 $scope.$apply();
             }

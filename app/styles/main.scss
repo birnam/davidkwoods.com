@@ -910,6 +910,10 @@ dl {
                 display: inline-block;
                 width: 5em;
             }
+
+            &.error {
+                background: rgba(255, 0, 0, 0.2);
+            }
         }
     }
 }

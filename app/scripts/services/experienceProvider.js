@@ -4,19 +4,25 @@ angular.module("davidkwoodsApp")
        .provider("Experience", function() {
             this.dbpath = "/_design/experiences/_view/experiences";
 
-            this.$get = function(DB, $q, Couch) {
+            this.$get = function(DB, $q, $rootScope, Couch) {
                 return {
                     groups: []
                     ,dbpath: this.dbpath
 
                     ,getExperience: function() {
+                        $rootScope.$emit("appendLog", "ExperienceProvider is requesting experience list from Couch service");
+
                         var couch = Couch(DB + this.dbpath);
 
                         var deferred = $q.defer();
                         couch.get().then(angular.bind(this, function(ret) {
+                            $rootScope.$emit("appendLog", "ExperienceProvider has received list of experiences from Couch service");
+
                             this.groups = this._processResults(ret.data.rows);
                             deferred.resolve(this.groups);
                         }), function(msg) {
+                            $rootScope.$emit("appendLogError", "ERROR!! ExperienceProvider failed to retrieve list of experiences");
+
                             deferred.reject("Experience retrieval failed! " + msg);
                         });
 
@@ -24,6 +30,8 @@ angular.module("davidkwoodsApp")
                     }
 
                     ,_processResults: function(data) {
+                        $rootScope.$emit("appendLog", "ExperienceProvider is now collating list of experiences");
+
                         var grps = [];
                         var curData = 0;
 

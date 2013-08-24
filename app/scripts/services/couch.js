@@ -49,6 +49,8 @@ angular.module('davidkwoodsApp.services')
                             deferred.resolve(ret);
                         }, function() {
                             // error Doctor Alban!!
+                            $rootScope.$emit("appendLogError", "ERROR!! CouchDB could not be accessed");
+
                             deferred.reject("Could not access CouchDB");
                         });
                     }
