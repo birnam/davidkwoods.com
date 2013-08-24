@@ -4,10 +4,40 @@ angular.module('davidkwoodsApp')
         .controller('SlideshowCtrl', function ($scope, $rootScope, Flickr) {
             $scope.curIndex = 0;
             $scope.showSlideshow = false;
+            $scope.wheelAccumulate = 0;
+
+            // catch scrolling
+            $('#slideshow').bind('mousewheel DOMMouseScroll', function(e) {
+                var delta = e.originalEvent.wheelDelta || -e.originalEvent.detail;
+                if ($scope.photos && $scope.photos.length > 1) {
+                    // reset if changing directions
+                    if (Math.abs($scope.wheelAccumulate + delta) < Math.abs($scope.wheelAccumulate)) {
+                        $scope.wheelAccumulate = 0;
+                    }
+
+                    // reduce to just 1 or -1
+                    $scope.wheelAccumulate += (delta / Math.abs(delta));
+
+                    if (Math.abs($scope.wheelAccumulate) > 30) {
+                        if ($scope.wheelAccumulate < 0 && $scope.curIndex > 0) {
+                            $scope.showPrev();
+                        } else if ($scope.wheelAccumulate > 0 && $scope.curIndex < $scope.photos.length - 1) {
+                            $scope.showNext();
+                        }
+                        $scope.wheelAccumulate = 0;
+                    }
+                }
+                if (!$scope.$$phase) {
+                    $scope.$apply();
+                }
+                e.preventDefault();
+            });
 
             $rootScope.$on("loadimages", angular.bind(this, function(event, setid) {
                 $scope.curIndex = 0;
                 $scope.showSlideshow = true;
+
+                $rootScope.$emit("appendLog", "open slideshow with Flickr set# " + setid);
 
                 Flickr.getPhotoSet(setid).then(angular.bind(this, function(ret) {
                     var newphotos = [];

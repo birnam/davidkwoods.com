@@ -1,9 +1,6 @@
-<div class="logContainer">
+<div id="logContainer">
+    <div class="logtitle">site log - behind the scenes look at what happens on the page!</div>
     <div class="log">
-        <div class="logitem">1. something here</div>
-        <div class="logitem">2. something here</div>
-        <div class="logitem">3. something here</div>
-        <div class="logitem">4. something here</div>
-        <div class="logitem">5. something here</div>
+        <div data-ng-repeat="itm in logItems"><span>{{ $index }}</span>{{ itm }}</div>
     </div>
 </div>

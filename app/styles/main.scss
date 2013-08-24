@@ -287,6 +287,7 @@ nav.nav_contact {
     text-align: center;
     padding: 18px 0;
     font-size: 12px;
+    height: 80px;
 
     a {
         display: inline-block;
@@ -852,5 +853,63 @@ dl {
         color: white;
         width: 100%;
         text-shadow: 1px 1px 5px #000;
+    }
+}
+
+#logContainer {
+    position: fixed;
+    @include transition(height 0.3s ease);
+    height: 70px;
+    z-index: 14;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include box-shadow(0 -23px 10px rgba(0, 0, 0, 0.8));
+    background: rgba(0, 0, 0, 0.88);
+
+    &:hover {
+        //height: 33%;
+    }
+
+    .logtitle {
+        position: absolute;
+        top: -18px;
+        width: 100%;
+        font: normal 10px "Courier New", monospace;
+        color: white;
+        z-index: 16;
+        padding: 2px 14px;
+        background: #333;
+        @include box-shadow(0 3px 5px rgba(0, 0, 0, 0.6));
+    }
+
+    .log {
+        position: absolute;
+        z-index: 15;
+        vertical-align: bottom;
+        //bottom: 0;
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 14px;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        div {
+            font: normal 9px "Courier New", monospace;
+            color: #bbb;
+            &:before {
+                content: ' log@site:/var/www> ';
+                color: #58D212;
+                margin-right: 10px;
+                font-weight: bold;
+                font-size: 8px;
+            }
+
+            span {
+                display: inline-block;
+                width: 5em;
+            }
+        }
     }
 }

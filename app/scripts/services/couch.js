@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('davidkwoodsApp.services')
-    .factory("Couch", function($http, $cacheFactory, $q) {
+    .factory("Couch", function($http, $cacheFactory, $q, $rootScope) {
             // since the caching is just for show and the site won't get
             // enough traffic to really need it, I am deleting all of
             // the Couch cache whenever the page is fully refreshed
@@ -19,25 +19,6 @@ angular.module('davidkwoodsApp.services')
                 var params = Params || {};
 
                 function Couch() { }
-
-//                Couch.query = function(success) {
-//                    params.callback = "JSON_CALLBACK";
-//                    params.jsonp = "JSON_CALLBACK";
-//                    $http.jsonp(url, { params: params }).success(function(ret) {
-//                        if (ret instanceof Object && ret.rows && ret.rows instanceof Array) {
-//                            totalRows = ret.total_rows || ret.rows.length;
-//                            offset = ret.offset || 0;
-//                            rows = angular.copy(ret.rows);
-//                            if (success && typeof(success) == "function") {
-//                                success(rows);
-//                            }
-//                        } else if (ret instanceof Array) {
-//                            if (success && typeof(success) == "function") {
-//                                success(ret);
-//                            }
-//                        }
-//                    });
-//                }
 
                 Couch.get = function() {
                     var cacheparams = [];
@@ -58,8 +39,11 @@ angular.module('davidkwoodsApp.services')
 
                     var cached = $couchCache.get(cacheurl);
                     if (cached) {
+                        $rootScope.$emit("appendLog", "CouchDB request avoided because content is cached! " + cacheurl);
                         deferred.resolve(cached);
                     } else {
+                        $rootScope.$emit("appendLog", "Pull data from CouchDB source " + cacheurl);
+
                         $http.jsonp(url, { params: params }).then(function(ret) {
                             $couchCache.put(cacheurl, ret);
                             deferred.resolve(ret);
