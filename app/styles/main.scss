@@ -8,6 +8,7 @@ $selectBackgroundColor: rgba(255,255,255,0.08);
 $backgroundImage: url('../images/bg.jpg');
 $backgroundOverImage: url('../images/bg_over.png');
 $menuBackgroundImage: url('../images/bg_menu.jpg');
+$tldrImage: url('../images/tldr.png');
 
 $leftMargin: 200px;
 $rightMargin: 70px;
@@ -230,9 +231,27 @@ nav.nav_contact {
         @include transition(opacity 0.3s ease);
         font-size: 22px;
         margin-left: 8px;
+        position: relative;
 
         &:hover {
             @include opacity(100);
+        }
+
+        &.resume {
+            @include opacity(65);
+            &:after {
+                content: '';
+                position: absolute;
+                width: 167px;
+                height: 82px;
+                top: 18px;
+                right: -19px;
+                background: $tldrImage 0 0 no-repeat;
+            }
+
+            &:hover {
+                @include opacity(100);
+            }
         }
     }
 }
