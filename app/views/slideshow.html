@@ -1,0 +1,16 @@
+<div data-ng-class="{slideshowContainer: true, show: showSlideshow}">
+    <div class="slideshowBackground">
+        <div data-ng-class="{slideshow: true, atBeginning: (curIndex == 0), atEnd: (curIndex >= (photos.length - 1))}">
+            <div id="slideshowSet">
+                <div data-ng-repeat="pic in photos" data-ng-class="{slideshowPhoto: true, current: (pic.index == curIndex)}" data-ng-style="setStyleForBackground(pic.image)">
+                    <h4>{{ pic.title }}</h4>
+                    <div>{{ pic.description }}</div>
+                </div>
+            </div>
+
+            <div class="prev" data-ng-click="showPrev()"></div>
+            <div class="next" data-ng-click="showNext()"></div>
+            <div class="close" data-ng-click="hide()"></div>
+        </div>
+    </div>
+</div>

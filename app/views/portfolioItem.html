@@ -1,0 +1,20 @@
+<div>
+    <div class="porttitle">
+        <div class="porttype" data-ng-show="port.category">{{ port.category }}</div>
+        <h4>{{ port.title }}</h4>
+    </div>
+
+    <div class="portdetails">
+        <div class="portdesc">
+            <div class="portagency" data-ng-show="port.agency">with {{ port.agency }}</div>
+            {{ port.description }}
+        </div>
+        <dl>
+            <dt data-ng-show="port.tags.length > 0">tags</dt>
+            <dd data-ng-show="port.tags.length > 0">{{ port.tags.join(',') }}</dd>
+            <dt data-ng-show="port.tasks.length > 0">tasks</dt>
+            <dd data-ng-show="port.tasks.length > 0">{{ port.tasks.join(',') }}</dd>
+        </dl>
+        <div class="portcap" data-ng-click="showSlideshow(port.setid)" data-ng-style="{ backgroundImage: bgimg }"></div>
+    </div>
+</div>

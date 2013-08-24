@@ -19,7 +19,6 @@ angular.module('davidkwoodsApp')
             });
 
             Skills.getSkills().then(function(ret) {
-                console.log("data", ret);
                 $scope.skillGroups = ret;
                 if (!$scope.$$phase) {
                     $scope.$apply();

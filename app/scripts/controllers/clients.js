@@ -19,7 +19,6 @@ angular.module('davidkwoodsApp')
             });
 
             Experience.getExperience().then(function(ret) {
-                console.log("data", ret);
                 $scope.clientGroups = ret;
                 if (!$scope.$$phase) {
                     $scope.$apply();

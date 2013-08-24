@@ -1,2 +1,46 @@
 <h1>{{ title }}</h1>
 <div data-ng-bind-html-unsafe="content"></div>
+
+        <div class="togglerow">
+            <button data-ng-class="{togglebtn : true, toggleon : (showSection=='portfolio')}" data-ng-click="showSection='portfolio'">Portfolio</button>
+            <button data-ng-class="{togglebtn : true, toggleon : (showSection=='code')}" data-ng-click="showSection='code'">Code Samples</button>
+        </div>
+        <div data-ng-switch="showSection">
+            <div data-ng-switch-when="portfolio">
+
+                <div class="portgrid">
+                    <div data-portfolio-item data-ng-class="{portitem: true, nopic: !port.setid}"
+                         data-ng-repeat="port in portfolio" data-port-item="port"></div>
+
+                </div>
+
+            </div>
+
+
+            <div data-ng-switch-when="code">
+                <div ng-repeat="group in codeSampleGroups">
+                    <h2>{{ group.text }}</h2>
+                    <div class="skillgrid">
+                        <div ng-repeat="project in group.projects">
+                            <div class="skill">
+                                <div class="skilllabel grouplabel">{{ project.title }}</div>
+                                <div>&nbsp;</div>
+                            </div>
+                            <div class="skill" ng-show="project.description">
+                                <div class="skilllabel">Description</div>
+                                <div class="skilldesc">{{ project.description }}</div>
+                            </div>
+                            <div class="skill" ng-show="project.code">
+                                <div class="skilllabel">Code</div>
+                                <div class="skilldesc"><a href="{{ project.code }}" target="_blank">{{ project.code }}</a></div>
+                            </div>
+                            <div class="skill" ng-show="project.view">
+                                <div class="skilllabel">View</div>
+                                <div class="skilldesc"><a href="{{ project.view }}" target="_blank">{{ project.view }}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>

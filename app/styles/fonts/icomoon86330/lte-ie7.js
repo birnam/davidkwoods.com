@@ -89,7 +89,9 @@ window.onload = function() {
 			'icon-file-xml' : '&#x3c;',
 			'icon-file-css' : '&#x3d;',
 			'icon-file-excel' : '&#x3e;',
-			'icon-file-pdf' : '&#x3f;'
+			'icon-file-pdf' : '&#x3f;',
+			'icon-arrow-right' : '&#x5b;',
+			'icon-arrow-left' : '&#x5c;'
 		},
 		els = document.getElementsByTagName('*'),
 		i, attr, html, c, el;
