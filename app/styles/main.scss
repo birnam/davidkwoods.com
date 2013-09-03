@@ -126,6 +126,7 @@ a {
     position: relative;
     padding-top: 174px;
     min-width: 400px;
+    overflow: hidden;
 }
 
 #logo {
@@ -205,7 +206,8 @@ section.page {
     @include user-select(none);
 
     @media screen and (max-width: $mediaBreak_menuTop) {
-        top: -173px;
+        position: fixed;
+        top: 0;
         bottom: auto;
         min-height: 0;
         font-size: 16px;
