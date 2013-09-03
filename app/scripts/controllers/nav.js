@@ -45,6 +45,7 @@ angular.module('davidkwoodsApp')
                 }
 
                 selid = (selid == undefined || selid == null)?$routeParams.id.toLowerCase():selid;
+                $scope.currentNav = "/" + $routeParams.id;
                 $rootScope.$emit("appendLog", "MainNavCtrl is selecting new item: " + selid);
                 switch(selid) {
                     case "about":

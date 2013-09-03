@@ -1,4 +1,6 @@
 <nav id="nav_main" data-ng-class="selectRoute">
     <div id="nav_main_select"></div>
-    <a ng-repeat="page in mainNav" data-nav-item data-url="{{ page.url }}" class="{{ page.class }}">{{ page.text }}</a>
+    <a ng-repeat="page in mainNav" data-nav-item data-url="{{ page.url }}"
+       class="{{ page.class }}"
+       ng-class="{ selected: (page.url == currentNav) }">{{ page.text }}</a>
 </nav>
