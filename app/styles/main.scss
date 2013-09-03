@@ -146,6 +146,7 @@ a {
 
     @media screen and (max-width: $mediaBreak_logoMiddle) {
         left: calc(50% - 262px);
+        left: -webkit-calc(50% - 262px);
     }
 }
 
@@ -209,11 +210,14 @@ section.page {
         min-height: 0;
         font-size: 16px;
         width: calc(100% + 40px);
+        width: -webkit-calc(100% + 40px);
         margin: 0 -20px;
         background: #444;
         background-image: none;
         border-radius: 0px;
         height: auto;
+        overflow: hidden;
+        white-space: nowrap;
     }
 
     a {
@@ -707,6 +711,7 @@ dl {
         height: 0px;
         @include rotate(45deg);
         left: calc(50% - 2px);
+        left: -webkit-calc(50% - 2px);
         bottom: 4px;
         background: inherit;
         @include transition(bottom 0.3s ease, width 0.3s ease, height 0.3s ease);
@@ -805,7 +810,9 @@ dl {
                 position: absolute;
                 @include icofont();
                 top: calc(50% - 22px);
+                top: -webkit-calc(50% - 22px);
                 left: calc(50% - 0.5em - 22px);
+                left: -webkit-calc(50% - 0.5em - 22px);
                 font-size: 40px;
                 text-shadow: 2px 2px 5px #000;
                 background: rgba(0, 0, 0, 0.4);
@@ -939,6 +946,7 @@ dl {
 
         position: absolute;
         top: calc(50% - 30px);
+        top: -webkit-calc(50% - 30px);
         left: -20px;
         color: #888;
         cursor: pointer;
@@ -967,6 +975,7 @@ dl {
 
         position: absolute;
         top: calc(50% - 30px);
+        top: -webkit-calc(50% - 30px);
         right: -20px;
         color: #888;
         text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
